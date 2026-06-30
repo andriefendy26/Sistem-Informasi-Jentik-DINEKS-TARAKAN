@@ -21,7 +21,8 @@ class AbjResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name_kepala_keluarga';
-
+    protected static ?string $pluralModelLabel = 'data ABJ (Angka Bebas Jentik)';
+    
     public static function form(Schema $schema): Schema
     {
         return AbjForm::configure($schema);
@@ -39,6 +40,7 @@ class AbjResource extends Resource
         ];
     }
 
+    
     public static function getPages(): array
     {
         return [

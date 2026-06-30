@@ -21,6 +21,7 @@ class RTResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $pluralModelLabel = 'RT';
 
     public static function form(Schema $schema): Schema
     {
