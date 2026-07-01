@@ -15,11 +15,13 @@ class abj extends Model
     protected $fillable = [
         'id_user',
         'id_kelurahan',
+        'id_rt',
         'name_kepala_keluarga',
         'penampungan_berjentik',
         'penampungan_tidak_berjentik',
         'rumah_berjentik',
         'rumah_tidak_berjentik',
+        'tanggal_pemeriksaan',
     ];
 
     public function Kelurahan()

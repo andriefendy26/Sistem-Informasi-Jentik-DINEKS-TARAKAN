@@ -6,6 +6,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Builder; 
 
 class AbjForm
 {
@@ -19,10 +20,18 @@ class AbjForm
                         Select::make('id_kelurahan')
                             ->label("Kelurahan")
                             ->relationship('Kelurahan', 'name')
+                            ->live()
                             ->required(),
                         Select::make('id_rt')
                             ->label("RT")
-                            ->relationship('RT', 'name')
+                            ->relationship(
+                                name: 'RT', 
+                                titleAttribute: 'name', 
+                                modifyQueryUsing : fn (Builder $query, callable $get) => 
+                                    $query->where('id_kelurahan', $get('id_kelurahan')
+                            ))
+                            ->preload()
+                            ->disabled(fn (callable $get) => ! $get('id_kelurahan'))
                             ->required(),
                 ])->columns(2)->columnSpan('full'),
                 Section::make('Lokasi')

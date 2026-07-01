@@ -13,11 +13,17 @@ class RT extends Model
     protected $table = 'rt';
 
     protected $fillable = [
-        'name'
+        'name',
+        'id_kelurahan'
     ];
 
-    public function Kelurahan ()
+    public function Kelurahan()
     {
         return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
+    }
+
+      public function abj()   // added — inverse relation, useful for per-RT recap export
+    {
+        return $this->hasMany(abj::class, 'id_rt');
     }
 }
