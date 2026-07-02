@@ -9,6 +9,7 @@ use App\Filament\Resources\Kelurahans\Schemas\KelurahanForm;
 use App\Filament\Resources\Kelurahans\Tables\KelurahansTable;
 use App\Models\Kelurahan;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,6 +23,7 @@ class KelurahanResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
     protected static ?string $pluralModelLabel = 'Kelurahan';
+    protected static string | UnitEnum | null $navigationGroup = 'Units';
 
     public static function form(Schema $schema): Schema
     {

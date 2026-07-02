@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Schemas\Schema;
 use Maatwebsite\Excel\Facades\Excel;
 use BackedEnum;
+use UnitEnum;
 use Filament\Support\Icons\Heroicon;
 
 class RekapLaporan extends Page
@@ -18,6 +19,7 @@ class RekapLaporan extends Page
     protected static ?string $title = 'Rekap Laporan';
     protected string $view = 'filament.pages.rekap-laporan';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentText;
+    protected static string | UnitEnum | null $navigationGroup = 'Laporan';
     public ?int $bulan = null;
     public ?int $tahun = null;
 

@@ -9,6 +9,7 @@ use App\Filament\Resources\RTS\Schemas\RTForm;
 use App\Filament\Resources\RTS\Tables\RTSTable;
 use App\Models\RT;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,7 +20,7 @@ class RTResource extends Resource
     protected static ?string $model = RT::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string | UnitEnum | null $navigationGroup = 'Units';
     protected static ?string $recordTitleAttribute = 'name';
     protected static ?string $pluralModelLabel = 'RT';
 

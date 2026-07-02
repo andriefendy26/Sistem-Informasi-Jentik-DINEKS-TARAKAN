@@ -21,6 +21,9 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
+use Filament\Navigation\NavigationGroup;
+use Filament\Support\Icons\Heroicon;
+
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -32,6 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->login(Login::class)
             ->colors([
                 'primary' => Color::Amber,
+                // 'primary' => Color::Default,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
@@ -48,6 +52,11 @@ class AdminPanelProvider extends PanelProvider
                 FilamentShieldPlugin::make()
                     ->navigationGroup('Settings'),
                     // ->simpleResourcePermissionView()
+            ])
+            ->navigationGroups([
+                'Units',
+                'Laporan',
+                'Settings',
             ])
             ->middleware([
                 EncryptCookies::class,

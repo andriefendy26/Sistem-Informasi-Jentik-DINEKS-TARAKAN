@@ -9,6 +9,7 @@ use App\Filament\Resources\Abjs\Schemas\AbjForm;
 use App\Filament\Resources\Abjs\Tables\AbjsTable;
 use App\Models\Abj;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class AbjResource extends Resource
     protected static ?string $model = Abj::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string | UnitEnum | null $navigationGroup = 'Laporan';
 
     protected static ?string $recordTitleAttribute = 'name_kepala_keluarga';
     protected static ?string $pluralModelLabel = 'data ABJ (Angka Bebas Jentik)';
